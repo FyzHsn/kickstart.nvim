@@ -98,6 +98,9 @@ vim.o.cursorline = true
 -- Minimal number of screen lines to keep above and below the cursor.
 vim.o.scrolloff = 10
 
+-- Set cursor to underline in all modes
+vim.o.guicursor = 'n-v-c:hor20,i-ci-ve:hor20,r-cr-o:hor20'
+
 -- if performing an operation that would fail due to unsaved changes in the buffer (like `:q`),
 -- instead raise a dialog asking if you wish to save the current file(s)
 -- See `:help 'confirm'`
@@ -842,15 +845,18 @@ require('lazy').setup({
     config = function()
       ---@diagnostic disable-next-line: missing-fields
       require('tokyonight').setup {
+        transparent = true, -- Enable transparency
         styles = {
           comments = { italic = false }, -- Disable italics in comments
+          sidebars = 'transparent', -- Make sidebars transparent
+          floats = 'transparent', -- Make floating windows transparent
         },
       }
 
       -- Load the colorscheme here.
       -- Like many other themes, this one has different styles, and you could load
       -- any other, such as 'tokyonight-storm', 'tokyonight-moon', or 'tokyonight-day'.
-      vim.cmd.colorscheme 'tokyonight-night'
+      vim.cmd.colorscheme 'default'
     end,
   },
 
